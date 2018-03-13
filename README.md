@@ -10,7 +10,7 @@ React 16.2
 To get started, in the root directory please enter
 
 ` bundle install`
-`rake db:{create,migrate,seed}`
+`rake db:{create,migrate,seed}` </br>
 `rspec `
 (to see passing tests)
 `rails s `
