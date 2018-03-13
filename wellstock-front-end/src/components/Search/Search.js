@@ -25,6 +25,7 @@ import React, { Component } from 'react';
     return (
       <div>
         <form onSubmit={this.submitStock}>
+        <h3>Search stocks by date</h3>
           <input
             name='input' 
             type='date' 

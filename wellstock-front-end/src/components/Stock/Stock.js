@@ -7,7 +7,7 @@ const Stock = ({stock, removeStock, editStock}) => {
 
   return (
     <article className="stock">
-      <h3>Date: {date}</h3>
+      <h4>Date: {date}</h4>
       <p>high: {high}</p>
       <p>low: {low}</p>
       <p>open: {open}</p>
@@ -15,7 +15,6 @@ const Stock = ({stock, removeStock, editStock}) => {
       <p>volume: {volume}</p>
       <button onClick={() => removeStock(date)}> delete </button>
       {/* <button onClick={() => editStock(date)> edit </button> */}
-
     </article>
   )
 }

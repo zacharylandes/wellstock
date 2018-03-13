@@ -19,6 +19,7 @@ export const StockContainer = ({ stocks, removeStock, editStock }) => {
             
         return (
             <div className="StockContainer">
+            <h3>All stocks</h3>
                 {renderedStocks}
             </div>
         )

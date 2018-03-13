@@ -32,6 +32,8 @@ import React, { Component } from 'react';
   render() {
     return (
       <div>
+
+        <h3>Or Make a new stock</h3>
         <form onSubmit={this.submitStock}>
           <input
             name='date' 

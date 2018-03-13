@@ -17,7 +17,7 @@ class Api::V1::StocksController < ApplicationController
 
     def create 
         stock = Stock.new(stock_params)
-    if stock.save
+        if stock.save
           render json: Stock.find(stock.id)
         end
     end 

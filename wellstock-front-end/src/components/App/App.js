@@ -21,10 +21,10 @@ class App extends Component {
     this.setState({stocks: stocks})
   }
 
+
   handleSubmit = (stock) => {
     const stocks = [ ...this.state.stocks, stock ]
     createStock(stock)
-    // dont forget to change backend
     this.setState({ stocks })
     console.log('stocks', stocks)
   }
@@ -35,16 +35,13 @@ class App extends Component {
   }
 
   removeStock = (date) => {
-    // this.state.ideas.filter(({id}) => id !== ideaId) // redeclare param to ideaId
     const stocks = this.state.stocks.filter(stock => stock.date !== date)
     this.setState({ stocks })
   }
 
   editStock = (stock) => {
     putStock(stock)
-    // this.state.ideas.filter(({id}) => id !== ideaId) // redeclare param to ideaId
-    // const stocks = this.state.stocks.filter(stock => stock.stock !== date)
-    // this.setState({ stocks })
+
   }
 
   render() {
@@ -53,7 +50,6 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to Well Stock</h1>
         </header>
-          <a href ="http://localhost:3000/auth/google_oauth2">Sign in with Google</a>
         <Search handleSearch={this.handleSearch} />
         <Form handleSubmit={this.handleSubmit} />
         <StockContainer 

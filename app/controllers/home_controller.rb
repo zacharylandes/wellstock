@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   def show
     if current_user
       render json: Stock.all   
@@ -7,4 +8,5 @@ class HomeController < ApplicationController
       render :json => output   
     end
   end
+  
 end
