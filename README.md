@@ -1,24 +1,25 @@
-# README
+Welcome to Wellstock!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here you can look at overall stock market data by date. 
 
-Things you may want to cover:
+this app uses 
+Ruby 2.4.1
+Rails 5.1
+React 16.2
 
-* Ruby version
+To get started, in the root directory please enter
 
-* System dependencies
+> bundle install
+> rake db:{create,migrate,seed}
+> rspec 
+(to see passing tests)
+> rails s 
+then navigate to the frontend portion of the app
+> cd wellstock-front-end
+> npm install
+> npm start
+> y
 
-* Configuration
+then a browser window should open and
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
