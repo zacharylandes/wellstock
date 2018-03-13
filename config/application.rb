@@ -20,6 +20,12 @@ module Wellstock
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.action_dispatch.default_headers = {
+    # 'Access-Control-Allow-Origin' => 'http://localhost:3000/api/v1/stocks',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(","),
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Allow-Headers' =>'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  }
     # config.api_only = true
     # config.middleware.insert_after ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies
     # Settings in config/environments/* take precedence over those specified here.

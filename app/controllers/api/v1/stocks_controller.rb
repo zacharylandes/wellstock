@@ -3,7 +3,11 @@
 class Api::V1::StocksController < ApplicationController 
 
     def index 
-       render json: Stock.all
+        if params['date']
+            render json: Stock.where(date: params['date'])
+        else
+            render json: Stock.all  
+        end  
     end
 
     def show 
@@ -34,5 +38,5 @@ class Api::V1::StocksController < ApplicationController
     def stock_params
         params.permit(:date, :high, :low, :open, :close, :volume)
     end
-    
+
 end
