@@ -14,7 +14,7 @@ describe 'stocks' do
             expect(response).to be_success
         end 
 
-        it ' can show a stock' do 
+        it 'can show a stock' do 
             stock = create(:stock, id:1)
 
             get '/api/v1/stocks/1'
@@ -22,6 +22,17 @@ describe 'stocks' do
             stock = JSON.parse(response.body)
 
             expect(stock['date']).to eq("2018-03-03")
+    
+            expect(response).to be_success
+        end 
+
+        it 'can find a stock with search params' do 
+            stock = create(:stock, id:1)
+
+            get '/api/v1/stocks/?date=2018-03-03'
+
+            stock = JSON.parse(response.body)
+            expect(stock.first['date']).to eq("2018-03-03")
     
             expect(response).to be_success
         end 

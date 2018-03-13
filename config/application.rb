@@ -18,14 +18,30 @@ Bundler.require(*Rails.groups)
 
 module Wellstock
   class Application < Rails::Application
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.action_dispatch.default_headers = {
+    # 'Access-Control-Allow-Origin' => 'http://localhost:3000/api/v1/stocks',
+    'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS}.join(","),
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Allow-Headers' =>'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  }
     # config.api_only = true
     # config.middleware.insert_after ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     # config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore
+
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
