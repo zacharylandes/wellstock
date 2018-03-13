@@ -1,7 +1,8 @@
 import React from 'react';
+import {EditForm} from '../EditForm/EditForm'
 
 
-const Stock = ({stock}) => {
+const Stock = ({stock, removeStock, editStock}) => {
   const{ date, high, low, open, close, volume } = stock;
 
   return (
@@ -12,6 +13,9 @@ const Stock = ({stock}) => {
       <p>open: {open}</p>
       <p>close: {close}</p>
       <p>volume: {volume}</p>
+      <button onClick={() => removeStock(date)}> delete </button>
+      {/* <button onClick={() => editStock(date)> edit </button> */}
+
     </article>
   )
 }

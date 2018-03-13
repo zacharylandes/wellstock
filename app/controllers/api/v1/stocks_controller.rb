@@ -1,12 +1,13 @@
 
 
 class Api::V1::StocksController < ApplicationController 
+ skip_before_action :verify_authenticity_token
 
     def index 
         if params['date']
             render json: Stock.where(date: params['date'])
         else
-            render json: Stock.all  
+            render json: Stock.all 
         end  
     end
 
@@ -16,7 +17,7 @@ class Api::V1::StocksController < ApplicationController
 
     def create 
         stock = Stock.new(stock_params)
-        if stock.save
+    if stock.save
           render json: Stock.find(stock.id)
         end
     end 

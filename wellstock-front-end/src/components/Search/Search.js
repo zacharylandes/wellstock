@@ -27,7 +27,7 @@ import React, { Component } from 'react';
         <form onSubmit={this.submitStock}>
           <input
             name='input' 
-            type='text' 
+            type='date' 
             value={this.state.input}
             onChange={this.handleFormInput} 
           />
